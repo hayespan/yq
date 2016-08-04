@@ -39,7 +39,8 @@ def preprocess(img_name):
  
     w, h = img.size
     m = max(img.size)
-    delta = m / 200.0
+    delta = m / 100.0
+    print w, h, delta
     w, h = int(w / delta), int(h / delta)
     img = img.resize((w, h))
     img = img.convert('L')
@@ -57,8 +58,8 @@ def main():
     pic_str = to_html(make_char_img)(img)
     save_to_file('char.html', pic_str)
 
-	txt_str = make_char_img(img)
-	save_to_file('char.txt', txt_str)
+    txt_str = make_char_img(img)
+    save_to_file('char.txt', txt_str)
  
 if __name__ == '__main__':
     main()
