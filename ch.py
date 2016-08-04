@@ -21,8 +21,8 @@ def to_html(func):
         return html_head + pic_str + html_tail
  
     return wrapper
- 
-@to_html
+
+
 def make_char_img(img):
     pix = img.load()
     pic_str = ''
@@ -33,6 +33,7 @@ def make_char_img(img):
         pic_str += '\n'
     return pic_str
  
+
 def preprocess(img_name):
     img = Image.open(img_name)
  
@@ -52,8 +53,12 @@ def save_to_file(filename, pic_str):
  
 def main():
     img = preprocess('1')
-    pic_str = make_char_img(img)
+
+    pic_str = to_html(make_char_img)(img)
     save_to_file('char.html', pic_str)
+
+	txt_str = make_char_img(img)
+	save_to_file('char.txt', txt_str)
  
 if __name__ == '__main__':
     main()
