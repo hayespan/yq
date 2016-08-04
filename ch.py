@@ -40,7 +40,7 @@ def preprocess(img_name):
     w, h = img.size
     #m = max(img.size)
     m = w
-    w *= 2
+    w *= 2.5
     delta = m / 40.0
     print w, h, delta
     w, h = int(w / delta), int(h / delta)
