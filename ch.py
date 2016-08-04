@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import PIL.Image
+from PIL import Image
  
 color = 'MNHQ$OC?7>!:-;.'
  
@@ -51,7 +51,7 @@ def save_to_file(filename, pic_str):
     outfile.close()
  
 def main():
-    img = preprocess('1.jpg')
+    img = preprocess('1')
     pic_str = make_char_img(img)
     save_to_file('char.html', pic_str)
  
