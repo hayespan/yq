@@ -38,7 +38,8 @@ def preprocess(img_name):
     img = Image.open(img_name)
  
     w, h = img.size
-    m = max(img.size)
+    #m = max(img.size)
+    m = w
     delta = m / 100.0
     print w, h, delta
     w, h = int(w / delta), int(h / delta)
