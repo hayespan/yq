@@ -54,7 +54,7 @@ def save_to_file(filename, pic_str):
     outfile.close()
  
 def main():
-    img = preprocess('1')
+    img = preprocess('2')
 
     pic_str = to_html(make_char_img)(img)
     save_to_file('char.html', pic_str)
