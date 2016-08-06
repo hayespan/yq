@@ -34,14 +34,14 @@ def make_char_img(img):
     return pic_str
  
 
-def preprocess(img_name):
+def preprocess(img_name, width):
     img = Image.open(img_name)
  
     w, h = img.size
     #m = max(img.size)
     m = w
     w *= 2
-    delta = m / 50.0
+    delta = m / width
     print w, h, delta
     w, h = int(w / delta), int(h / delta)
     img = img.resize((w, h))
@@ -57,15 +57,18 @@ def save_to_file(filename, pic_str):
 def main():
     import sys
     tot = int(sys.argv[1])
-    for i in range(tot):
-        name = '%d' % (i+1)
-        img = preprocess(name)
+    if len(sys.argv) > 2:
+        width = int(sys.argv[2])
+    else:
+        width = 50
+    name = '%d' % tot 
+    img = preprocess(name, width)
 
-        pic_str = to_html(make_char_img)(img)
-        save_to_file(name+'.html', pic_str)
+    pic_str = to_html(make_char_img)(img)
+    save_to_file(name+'.html', pic_str)
 
-        txt_str = make_char_img(img)
-        save_to_file(name+'.txt', txt_str)
+    txt_str = make_char_img(img)
+    save_to_file(name+'.txt', txt_str)
  
 if __name__ == '__main__':
     main()
