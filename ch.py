@@ -55,7 +55,9 @@ def save_to_file(filename, pic_str):
     outfile.close()
  
 def main():
-    for i in range(6):
+    import sys
+    tot = int(sys.argv[1])
+    for i in range(tot):
         name = '%d' % (i+1)
         img = preprocess(name)
 
