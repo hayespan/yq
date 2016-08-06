@@ -55,13 +55,15 @@ def save_to_file(filename, pic_str):
     outfile.close()
  
 def main():
-    img = preprocess('2')
+    for i in range(6):
+        name = '%d' % (i+1)
+        img = preprocess(name)
 
-    pic_str = to_html(make_char_img)(img)
-    save_to_file('char.html', pic_str)
+        pic_str = to_html(make_char_img)(img)
+        save_to_file(name+'.html', pic_str)
 
-    txt_str = make_char_img(img)
-    save_to_file('char.txt', txt_str)
+        txt_str = make_char_img(img)
+        save_to_file(name+'.txt', txt_str)
  
 if __name__ == '__main__':
     main()
