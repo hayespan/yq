@@ -24,7 +24,7 @@ def check():
         passwd = request.form.get('password', '')
         if passwd == 'wyqphz517824':
             fresh_session()
-            return redirect(url_for('main'))
+            return redirect('/')
         else:
             return redirect(url_for('check'))
     
