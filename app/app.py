@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
+import os
 import datetime
 from flask import Flask, render_template, session, request, redirect, url_for
 from util import fresh_session 
 from util import need_check
 
 app = Flask(__name__)
-app.debug = True
+app.debug = True 
+app.config['SECRET_KEY'] = os.urandom(24)
 
 @app.route('/')
 @need_check
